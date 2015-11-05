@@ -23,7 +23,6 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'Yggdroot/indentLine'
 Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-commentary'
-Plugin 'honza/vim-snippets'
 " vim-scripts/tComment
 Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
@@ -32,7 +31,10 @@ Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-rbenv'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+Plugin 'SirVer/ultisnips'
+Plugin 'ervandew/supertab'
+" Plugin 'garbas/vim-snipmate'
+" Plugin 'honza/vim-snippets'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'christoomey/vim-tmux-runner'
 Plugin 'airblade/vim-gitgutter'
@@ -77,6 +79,7 @@ set autoindent
 " autocmd FileType html setlocal ts=4 sts=4 sw=4
 " autocmd BufNewFile,BufRead .bowerrc setfiletype json
 " autocmd BufNewFile,BufRead *.es6 setfiletype javascript
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " search highlighting
 set hlsearch                  " highlight all matches
@@ -168,6 +171,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:syntastic_javascript_checkers = ['eslint']
 
 " automatically rebalance windows on vim resize
 autocmd VimResized * ;wincmd =
@@ -292,3 +297,15 @@ endfunction
 function! s:ClearCommand()
   return "clear"
 endfunction
+
+" UltiSnips
+let g:UltiSnipsSnippetsDir='~/.vim/UltiSnips'
+let g:UltiSnipsEditSplit='vertical'
+let g:UltiSnipsExpandTrigger='<tab>'
+let g:UltiSnipsJumpForwardTrigger='<tab>'
+let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
+
+nnoremap <leader>ue :UltiSnipsEdit<cr>
+
+let g:SuperTabDefaultCompletionType    = '<C-n>'
+let g:SuperTabCrMapping                = 0

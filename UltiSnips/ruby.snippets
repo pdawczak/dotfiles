@@ -1,0 +1,154 @@
+global !p
+def class_module_name():
+	names = fn.replace(".rb", "").split("_")
+	snip.rv = "".join(x.title() for x in names)
+
+def parse_method_name(string):
+	return string.split("(")[0]
+
+def parse_args(args_str):
+	args = args_str.split(",")
+	args = map(lambda x: x.strip(), args)
+	args = filter(lambda x: x != "", args)
+	return args
+
+def gen_attr_accessors():
+	args = parse_args(t[2])
+	attrs = ", ".join(":" + x for x in args)
+	snip.rv = "attr_accessor " + attrs
+
+def gen_setters():
+	args = parse_args(t[2])
+	max_len = max(map(lambda x: len(x), args))
+	for x in args:
+		line = "@" + x.ljust(max_len) + " = " + x
+		snip.rv += snip.mkline(line) + "\n"
+endglobal
+
+snippet cla
+class ${1:`!p class_module_name()`}
+	$0
+end
+endsnippet
+
+snippet clai
+class ${1:`!p class_module_name()`}
+	def initialize${2:()}
+		$0
+	end
+end
+endsnippet
+
+snippet claa
+class ${1:`!p class_module_name()`}
+	${3:`!p gen_attr_accessors()`}
+
+	def initialize(${2:args})
+		${4:`!p gen_setters()`}$0
+	end
+end
+endsnippet
+
+snippet mod
+module ${1:`!p class_module_name()`}
+	$0
+end
+endsnippet
+
+snippet def
+def ${1:method}${2:(${3:args})}
+	$0
+end
+endsnippet
+
+snippet defa
+def ${1:method}${2:(${3:args})}
+	$0
+end
+alias_method :${4:new_alias}, :`!p snip.rv = parse_method_name(t[1])`
+endsnippet
+
+snippet al
+alias_method :${1:new_alias}, :${2:for_method}$0
+endsnippet
+
+snippet :
+${1:key}: ${2:"${3:value}"},$0
+endsnippet
+
+snippet =>
+"${1:key}" => ${2:"${3:value}"},$0
+endsnippet
+
+snippet =
+@${1:var_name} = ${2:$1}$0
+endsnippet
+
+snippet r
+attr_reader ${1::attr}$0
+endsnippet
+
+snippet w
+attr_writer ${1::attr}$0
+endsnippet
+
+snippet rw
+attr_accessor ${1::attr}$0
+endsnippet
+
+snippet s
+self$0
+endsnippet
+
+snippet "(\w+)\.m{" ".map {}" rb
+`!p snip.rv = match.group(1)`.map { |${1:`!p snip.rv = match.group(1)`}| $1.${2:method} }$0
+endsnippet
+
+# Test snippets
+snippet rspec
+require "rails_helper"
+
+RSpec.describe ${1:`!p class_module_name()`} do
+	$0
+end
+endsnippet
+
+snippet spec
+require "spec_helper"
+
+RSpec.describe ${1:`!p class_module_name()`} do
+	$0
+end
+endsnippet
+
+snippet ds
+describe "${1:description}" do
+	$0
+end
+endsnippet
+
+snippet rds
+RSpec.describe "${1:description}" do
+	$0
+end
+endsnippet
+
+snippet cx
+context "${1:context}" do
+	$0
+end
+endsnippet
+
+snippet it
+it "${1:description}" do
+	$0
+end
+endsnippet
+
+snippet it{
+it { ${1:is_expected.${2:to}} ${3:eq(${4:"${5:actual}"})}$0 }
+endsnippet
+
+snippet exp
+expect(${1:expected}).${2:to} ${3:eq(${4:"${5:actual}"})}$0
+endsnippet

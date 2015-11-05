@@ -1,0 +1,33 @@
+snippet ds
+describe "${1:description}", ->
+	$0
+endsnippet
+
+snippet it
+it "${1:description}", ->
+	$0
+endsnippet
+
+snippet exp
+expect(${1:${2:$("${3:.selector}")}${4:.val()}}).${45:toBe(${6:"${7:actial}"})}$0
+endsnippet
+
+snippet exv
+expect("${1:.selector}").toHaveValue("${2:actual}")$0
+endsnippet
+
+snippet exd
+expect("${1:.selector}").toHaveData("${2:dataName}", "${3:dataValue}")$0
+endsnippet
+
+snippet svt
+${1:$("${2:.selector}")}.val("${3:newVal}").trigger("${4:change}")$0
+endsnippet
+
+snippet tr
+${1:$("${2:.selector}")}.trigger("${3:change}")$0
+endsnippet
+
+snippet log
+console.log ${1:"${2:output}"}$0
+endsnippet
