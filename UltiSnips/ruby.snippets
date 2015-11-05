@@ -23,6 +23,9 @@ def gen_setters():
 	for x in args:
 		line = "@" + x.ljust(max_len) + " = " + x
 		snip.rv += snip.mkline(line) + "\n"
+
+def singularise(string):
+	snip.rv = string.lstrip("@").rstrip("s")
 endglobal
 
 snippet cla
@@ -100,8 +103,18 @@ snippet s
 self$0
 endsnippet
 
-snippet "(\w+)\.m{" ".map {}" rb
-`!p snip.rv = match.group(1)`.map { |${1:`!p snip.rv = match.group(1)`}| $1.${2:method} }$0
+snippet "(@{0,2}\w+)\.(map|each|select|reject|count|any\?|all\?){" "._iterate_ {}" rb
+`!p snip.rv = match.group(1)`.`!p snip.rv = match.group(2)` { |${1:`!p singularise(match.group(1))`}| $1.${2:method} }$0
+endsnippet
+
+snippet "(@{0,2}\w+)\.(map|each|select|reject|count|any\?|all\?)d" "._iterate_ do end" rb
+`!p snip.rv = match.group(1)`.`!p snip.rv = match.group(2)` do |${1:`!p singularise(match.group(1))`}|
+	$1.${2:method}$0
+end
+endsnippet
+
+snippet "(@{0,2}\w+)\.(map|each|select|reject|count|any\?|all\?)\(" "._iterate_(&:method)" rb
+`!p snip.rv = match.group(1)`.`!p snip.rv = match.group(2)`(&:${1:method})$0
 endsnippet
 
 # Test snippets
