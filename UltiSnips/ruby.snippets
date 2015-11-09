@@ -104,17 +104,17 @@ snippet s
 self$0
 endsnippet
 
-snippet "(@{0,2}\w+)\.(map|each|select|reject|count|any\?|all\?){" "._iterate_ {}" rb
+snippet "(@{0,2}\w+)\.(map|each|select|reject|count|find|any\?|all\?){" "._iterate_ {}" rb
 `!p snip.rv = match.group(1)`.`!p snip.rv = match.group(2)` { |${1:`!p singularise(match.group(1))`}| $1.${2:method} }$0
 endsnippet
 
-snippet "(@{0,2}\w+)\.(map|each|select|reject|count|any\?|all\?)d" "._iterate_ do end" rb
+snippet "(@{0,2}\w+)\.(map|each|select|reject|count|find|any\?|all\?)d" "._iterate_ do end" rb
 `!p snip.rv = match.group(1)`.`!p snip.rv = match.group(2)` do |${1:`!p singularise(match.group(1))`}|
 	$1.${2:method}$0
 end
 endsnippet
 
-snippet "(@{0,2}\w+)\.(map|each|select|reject|count|any\?|all\?)\(" "._iterate_(&:method)" rb
+snippet "(@{0,2}\w+)\.(map|each|select|reject|count|find|any\?|all\?)\(" "._iterate_(&:method)" rb
 `!p snip.rv = match.group(1)`.`!p snip.rv = match.group(2)`(&:${1:method})$0
 endsnippet
 
