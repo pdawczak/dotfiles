@@ -8,7 +8,8 @@ def parse_method_name(string):
 
 def parse_args(args_str):
 	args = args_str.split(",")
-	args = map(lambda x: x.strip(), args)
+	# parse "sample: Arg, another, last"
+	args = map(lambda x: x.split(":")[0].strip(), args)
 	args = filter(lambda x: x != "", args)
 	return args
 
