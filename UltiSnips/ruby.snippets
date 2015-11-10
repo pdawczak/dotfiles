@@ -175,3 +175,9 @@ snippet pry
 require "pry"
 binding.pry
 endsnippet
+
+snippet defm
+def method_missing(method_name, *args, &block)
+	$0
+end
+endsnippet
