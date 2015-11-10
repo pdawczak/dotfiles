@@ -1,0 +1,31 @@
+snippet RC
+var ${1:ClassName} = React.createClass({
+	render: function () {
+		return (
+			${2:<div>$0</div>}
+		);
+	},
+});
+endsnippet
+
+snippet rm
+${1:methodName}: function (${2:args}) {
+	$0
+},
+endsnippet
+
+snippet req
+var ${1:Package} = require("${2:package}");$0
+endsnippet
+
+snippet var
+var ${1:varName} = ${2:"value"};$0
+endsnippet
+
+snippet ?:
+(${1:condition} ? ${2:"ifTrue"} : ${3:"ifFalse"})
+endsnippet
+
+snippet log
+console.log($0);
+endsnippet
