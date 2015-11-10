@@ -105,7 +105,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,log/,.git
 " Open 'alternative file' in split window
 map <Leader>v ;AV<cr>
 
-map <Leader>g ;call GenerateCTags()<cr>
+map <Leader>ct ;call GenerateCTags()<cr>
 
 function GenerateCTags()
   " if project is "bundle"-ready
