@@ -37,3 +37,19 @@ endsnippet
 snippet import{
 import { ${1:Module} } from "${2:from}";$0
 endsnippet
+
+snippet desc
+describe("${1:description}", function () {
+	$0
+});
+endsnippet
+
+snippet it
+it("${1:description}", function () {
+	$0
+});
+endsnippet
+
+snippet exp
+expect(${1:actual}).toBe(${2:expected});$0
+endsnippet
