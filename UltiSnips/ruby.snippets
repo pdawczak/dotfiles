@@ -27,6 +27,14 @@ def gen_setters():
 
 def singularise(string):
 	snip.rv = string.lstrip("@").rstrip("s")
+
+def try_converting_to_assignment(string):
+	match = re.search(r'\w+\[([:"\'\w]+)\]', string)
+
+	if match:
+		snip.rv = re.search(r'\w+', match.group(1)).group(0)
+	else:
+		snip.rv = string
 endglobal
 
 snippet cla
@@ -85,7 +93,7 @@ snippet =>
 endsnippet
 
 snippet =
-@${1:var_name} = ${2:$1}$0
+@${1:var_name} = ${2:`!p try_converting_to_assignment(t[1])`}$0
 endsnippet
 
 snippet r
