@@ -182,6 +182,10 @@ autocmd VimResized * ;wincmd =
 nnoremap <Leader>- :wincmd _<cr>:wincmd \|<cr>
 nnoremap <Leader>= :wincmd =<cr>
 
+" For Fugitive
+map <Leader>gd <Leader>- ;Gdiff<CR>
+map <Leader>gs ;Gstatus<CR><C-w>K
+
 nnorema <leader>irb :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'irb'}<cr>
 
 let g:gitgutter_sign_column_always = 1
