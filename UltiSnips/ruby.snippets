@@ -131,7 +131,7 @@ snippet rspec
 require "rails_helper"
 
 RSpec.describe ${1:`!p class_module_name()`} do
-	$0
+	${0:${VISUAL}}
 end
 endsnippet
 
@@ -139,31 +139,31 @@ snippet spec
 require "spec_helper"
 
 RSpec.describe ${1:`!p class_module_name()`} do
-	$0
+	${0:${VISUAL}}
 end
 endsnippet
 
-snippet ds
+snippet desc
 describe "${1:description}" do
-	$0
+	${0:${VISUAL}}
 end
 endsnippet
 
-snippet rds
+snippet rdesc
 RSpec.describe "${1:description}" do
-	$0
+	${0:${VISUAL}}
 end
 endsnippet
 
-snippet cx
+snippet ctx
 context "${1:context}" do
-	$0
+	${0:${VISUAL}}
 end
 endsnippet
 
 snippet it
 it "${1:description}" do
-	$0
+	${0:${VISUAL}}
 end
 endsnippet
 
