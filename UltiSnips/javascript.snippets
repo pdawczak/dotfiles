@@ -53,3 +53,33 @@ endsnippet
 snippet exp
 expect(${1:actual}).toBe(${2:expected});$0
 endsnippet
+
+snippet (f
+(function () {
+	"use strict";
+
+	$0
+})();
+endsnippet
+
+snippet (w
+(function () {
+	"use strict";
+
+	$0
+}).call(window);
+endsnippet
+
+snippet RCed
+import React from "react";
+
+class ${1:MyComponent} extends React.Component {
+	render () {
+		return (
+			${0:<span>Hello from $1</span>}
+		);
+	}
+}
+
+export default $1;
+endsnippet
