@@ -238,8 +238,10 @@ function! s:RunTests(test_location)
     let s:test_command_base = "VtrSendCommandToRunner! ./bin/rspec {test_location}"
   elseif s:InMinitestFile(a:test_location)
     let s:test_command_base = "VtrSendCommandToRunner! ./bin/rake test {test_location}"
+  elseif s:InTeaspoonSpecFile(a:test_location)
+    let s:test_command_base = "VtrSendCommandToRunner! ./bin/rake teaspoon files={test_location}"
   else
-    let s:test_command_base = "VtrSendCommandToRunner! bx teaspoon {test_location}"
+    let s:test_command_base = "VtrSendCommandToRunner! ./bin/rspec {test_location}"
   endif
   let s:test_command = substitute(s:test_command_base, "{test_location}", a:test_location, "g")
 
@@ -253,6 +255,15 @@ function! s:InSpecFile(...)
     let location = expand("%")
   endif
   return match(location, "_spec.rb") != -1
+endfunction
+
+function! s:InTeaspoonSpecFile(...)
+  if a:0 > 0
+    let location = a:1
+  else
+    let location = expand("%")
+  endif
+  return match(location, "_spec.js") != -1
 endfunction
 
 function! s:InMinitestFile(...)
