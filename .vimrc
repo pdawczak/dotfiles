@@ -101,7 +101,7 @@ map <Leader>p ;set paste<CR>o<esc>"*];set nopaste<cr>
 " hide search result highlight
 map <Leader>h ;nohl<cr>
 
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,log/,.git
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,log/,.git,*/node_modules/*
 
 " Open 'alternative file' in split window
 map <Leader>v ;AV<cr>
