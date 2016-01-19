@@ -39,6 +39,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'christoomey/vim-tmux-runner'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'skwp/greplace.vim'
+Plugin 'elixir-lang/vim-elixir'
 
 call vundle#end()
 filetype plugin indent on

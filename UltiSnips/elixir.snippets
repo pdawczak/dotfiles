@@ -1,0 +1,61 @@
+snippet mod
+defmodule ${1:MyModule} do
+	$0
+end
+endsnippet
+
+snippet def
+def ${1:name}${2:(${3:args})} do
+	$0
+end
+endsnippet
+
+snippet defw
+def ${1:name}${2:(${3:args})} when ${4:condition} do
+	$0
+end
+endsnippet
+
+snippet defd
+def ${1:name}${2:(${3:args})}, do: $0
+endsnippet
+
+snippet defp
+defp ${1:name}${2:(${3:args})} do
+	$0
+end
+endsnippet
+
+snippet defpw
+defp ${1:name}${2:(${3:args})} when ${4:condition} do
+	$0
+end
+endsnippet
+
+snippet defstr
+defstruct $0
+endsnippet
+
+snippet imp
+import ${1:Module}$0
+endsnippet
+
+snippet impo
+import ${1:Module}, only: [${2:my_fun: 1}]$0
+endsnippet
+
+snippet impe
+import ${1:Module}, except: [${2:my_fun: 1}]$0
+endsnippet
+
+snippet alias
+alias ${1:Module}
+endsnippet
+
+snippet defdel
+defdelegate function(${1:args}), to: ${2:Module}, as: :${3:function_name}$0
+endsnippet
+
+snippet fn
+fn ${1:(${2:args})} -> $0 end
+endsnippet
