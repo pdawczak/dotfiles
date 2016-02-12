@@ -20,10 +20,22 @@ snippet defd
 def ${1:name}${2:(${3:args})}, do: $0
 endsnippet
 
+snippet defdw
+def ${1:name}${2:(${3:args})} when ${4:condirion}, do: $0
+endsnippet
+
 snippet defp
 defp ${1:name}${2:(${3:args})} do
 	$0
 end
+endsnippet
+
+snippet defpd
+defp ${1:name}${2:(${3:args})}, do: $0
+endsnippet
+
+snippet defpdw
+defp ${1:name}${2:(${3:args})} when ${4:condition}, do: $0
 endsnippet
 
 snippet defpw
@@ -32,7 +44,7 @@ defp ${1:name}${2:(${3:args})} when ${4:condition} do
 end
 endsnippet
 
-snippet defstr
+snippet str
 defstruct $0
 endsnippet
 
@@ -58,4 +70,20 @@ endsnippet
 
 snippet fn
 fn ${1:(${2:args})} -> $0 end
+endsnippet
+
+snippet for
+for ${1:condition} do
+	$0
+end
+endsnippet
+
+snippet ford
+for ${1:condition}, do: $0
+endsnippet
+
+snippet test
+test "${1:description}" do
+	$0
+end
 endsnippet
