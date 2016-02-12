@@ -255,7 +255,7 @@ function! s:InSpecFile(...)
   else
     let location = expand("%")
   endif
-  return match(location, "_spec.rb") != -1
+  return match(location, "_spec.rb") != -1 || match(location, ".feature") != -1
 endfunction
 
 function! s:InTeaspoonSpecFile(...)
