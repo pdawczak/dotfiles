@@ -87,3 +87,21 @@ test "${1:description}" do
 	$0
 end
 endsnippet
+
+snippet case
+case ${1:condition} do
+	$0
+end
+endsnippet
+
+snippet impl
+defimpl ${1:Protocol}, for: ${2:Struct} do
+	$0
+end
+endsnippet
+
+snippet mac
+defmacro ${1:name} do
+	$0
+end
+endsnippet

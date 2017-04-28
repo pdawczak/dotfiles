@@ -23,7 +23,6 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'Yggdroot/indentLine'
 Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-commentary'
-" vim-scripts/tComment
 Plugin 'kana/vim-textobj-user'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'bronson/vim-trailing-whitespace'
@@ -33,13 +32,14 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'ervandew/supertab'
-" Plugin 'garbas/vim-snipmate'
-" Plugin 'honza/vim-snippets'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'christoomey/vim-tmux-runner'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'skwp/greplace.vim'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'lambdatoast/elm.vim'
+Plugin 'morhetz/gruvbox'
+Plugin 'crusoexia/vim-monokai'
 
 call vundle#end()
 filetype plugin indent on
@@ -51,8 +51,8 @@ runtime macros/matchit.vim
 " appearance
 set t_Co=256
 set background=dark
-colo Tomorrow-Night
-set guifont=Inconsolata:h15
+colorscheme monokai
+set guifont=Fira\ Code:h12
 set relativenumber
 set number
 autocmd InsertEnter * :set number norelativenumber

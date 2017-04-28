@@ -18,12 +18,14 @@ def gen_attr_accessors():
 	attrs = ", ".join(":" + x for x in args)
 	snip.rv = "attr_accessor " + attrs
 
-def gen_setters():
+def gen_setters(snip):
+	snip >> 1
 	args = parse_args(t[2])
 	max_len = max(map(lambda x: len(x), args))
 	for x in args:
 		line = "@" + x.ljust(max_len) + " = " + x
-		snip.rv += snip.mkline(line) + "\n"
+		snip += snip.mkline(line)
+		# snip.rv += snip.mkline(line) + "\n"
 
 def singularise(string):
 	snip.rv = string.lstrip("@").rstrip("s")
@@ -35,6 +37,13 @@ def try_converting_to_assignment(string):
 		snip.rv = re.search(r'\w+', match.group(1)).group(0)
 	else:
 		snip.rv = string
+
+def complete(t, opts):
+	if t:
+		opts = [ m[len(t):] for m in opts if m.startswith(t) ]
+	if len(opts) == 1:
+		return opts[0]
+	return "(" + "|".join(opts) + ")"
 endglobal
 
 snippet cla
@@ -56,7 +65,7 @@ class ${1:`!p class_module_name()`}
 	${3:`!p gen_attr_accessors()`}
 
 	def initialize(${2:args})
-		${4:`!p gen_setters()`}$0
+		${4:`!p gen_setters(snip)`}$0
 	end
 end
 endsnippet
