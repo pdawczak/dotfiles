@@ -30,7 +30,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-rbenv'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-Plugin 'SirVer/ultisnips'
+" Plugin 'SirVer/ultisnips'
 Plugin 'ervandew/supertab'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'christoomey/vim-tmux-runner'
@@ -227,6 +227,8 @@ function! RunNearestTest()
   endif
 endfunction
 
+set rtp+=/usr/local/opt/fzf
+
 function! RunLastTest()
   if exists("s:last_test")
     call s:RunTests(s:last_test)
@@ -316,13 +318,13 @@ function! s:ClearCommand()
 endfunction
 
 " UltiSnips
-let g:UltiSnipsSnippetsDir='~/.vim/UltiSnips'
-let g:UltiSnipsEditSplit='vertical'
-let g:UltiSnipsExpandTrigger='<tab>'
-let g:UltiSnipsJumpForwardTrigger='<tab>'
-let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
+" let g:UltiSnipsSnippetsDir='~/.vim/UltiSnips'
+" let g:UltiSnipsEditSplit='vertical'
+" let g:UltiSnipsExpandTrigger='<tab>'
+" let g:UltiSnipsJumpForwardTrigger='<tab>'
+" let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
 
-nnoremap <leader>ue :UltiSnipsEdit<cr>
+" nnoremap <leader>ue :UltiSnipsEdit<cr>
 
 let g:SuperTabDefaultCompletionType    = '<C-n>'
 let g:SuperTabCrMapping                = 0
