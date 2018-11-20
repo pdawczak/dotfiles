@@ -189,7 +189,7 @@ map <Leader>gs ;Gstatus<CR><C-w>K
 
 nnorema <leader>irb :VtrOpenRunner {'orientation': 'h', 'percentage': 50, 'cmd': 'irb'}<cr>
 
-let g:gitgutter_sign_column_always = 1
+set signcolumn=yes
 set updatetime=500
 
 " ======== FOR TESTS
