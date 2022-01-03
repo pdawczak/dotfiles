@@ -1,0 +1,16 @@
+// ~/Library/Application Support/Code/User/settings.json
+{
+    "workbench.colorTheme": "Monokai",
+    "editor.fontFamily": "Fira Code, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "files.associations": {
+      "*.eex": "html-eex",
+      "*.leex": "html-eex",
+      "*.heex": "html-eex"
+    },
+    "editor.fontSize": 13,
+    "vim.smartRelativeLine": true,
+    "elixirLS.fetchDeps": false,
+    "editor.formatOnSave": true,
+    "workbench.tree.indent": 24
+}
