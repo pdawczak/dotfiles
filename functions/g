@@ -1,0 +1,13 @@
+# No arguments: `git status`
+# With arguments: acts like `git`
+function g {
+  echo "===> running g"
+  # if [[ $# -gt 0 ]]; then
+  if [[ $# -eq 0 ]]; then
+    echo "===> running git status"
+    git status
+  else
+    echo "===> running git '$@'"
+    git "$@"
+  fi
+}
