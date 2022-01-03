@@ -7,6 +7,8 @@ brew install reattach-to-user-namespace
 
 brew install httpie
 
+brew install global
+
 # https://github.com/railwaycat/homebrew-emacsmacport
 # brew tap railwaycat/emacsmacport
 # brew install emacs-mac
