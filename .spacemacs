@@ -31,21 +31,14 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     rust
      (python :variables
              python-backend 'anaconda
              python-test-runner 'pytest
              pytest-global-name "python -m pytest")
-     haskell
      csv
      sql
      yaml
      (javascript :variables javascript-disable-tern-port-files nil)
-     ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
-     ;; <M-m f e R> (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
      helm
      auto-completion
      ;; better-defaults
@@ -72,7 +65,6 @@ values."
            ruby-test-runner 'rspec)
      ruby-on-rails
      gtags
-     scala
      (go :variables go-tab-width 4)
      docker
      terraform
@@ -171,8 +163,9 @@ values."
    ;; dotspacemacs-default-font '("Source Code Pro"
    ;; dotspacemacs-default-font '("Fira Code Retina"
    ;; :size 14
-   dotspacemacs-default-font '("Operator Mono"
-                               :size 15
+   ;; dotspacemacs-default-font '("Operator Mono"
+   dotspacemacs-default-font '("Fira Code Retina"
+                               :size 13
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -354,7 +347,7 @@ you should place your code here."
   (setq powerline-default-separator 'utf-8)
 
   (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
-  (global-fci-mode 1)
+  ;; (global-fci-mode 1)
   (golden-ratio-mode 1)
 
   (setq ruby-insert-encoding-magic-comment nil)
