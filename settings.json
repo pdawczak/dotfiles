@@ -1,16 +1,33 @@
-// ~/Library/Application Support/Code/User/settings.json
 {
-    "workbench.colorTheme": "Monokai",
-    "editor.fontFamily": "Fira Code, Menlo, Monaco, 'Courier New', monospace",
-    "editor.fontLigatures": true,
-    "files.associations": {
-      "*.eex": "html-eex",
-      "*.leex": "html-eex",
-      "*.heex": "html-eex"
-    },
-    "editor.fontSize": 13,
-    "vim.smartRelativeLine": true,
-    "elixirLS.fetchDeps": false,
+  "workbench.colorTheme": "Monokai",
+  "editor.fontFamily": "Fira Code, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "files.associations": {
+    "*.eex": "phoenix-heex",
+    "*.leex": "phoenix-heex",
+    "*.heex": "phoenix-heex"
+  },
+  "editor.fontSize": 13,
+  "vim.smartRelativeLine": true,
+  "elixirLS.fetchDeps": false,
+  "[elixir]": {
     "editor.formatOnSave": true,
-    "workbench.tree.indent": 24
+    "editor.defaultFormatter": "JakeBecker.elixir-ls"
+  },
+  "[phoenix-heex]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "JakeBecker.elixir-ls"
+  },
+  "workbench.tree.indent": 24,
+  "explorer.confirmDelete": false,
+  "emmet.includeLanguages": {
+    "phoenix-heex": "html",
+    "elixir": "html"
+  },
+  "editor.stickyScroll.enabled": true,
+  "workbench.iconTheme": "vscode-icons",
+  "tailwindCSS.includeLanguages": {
+    "phoenix-heex": "html",
+    "elixir": "html"
+  }
 }
